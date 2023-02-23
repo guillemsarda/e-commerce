@@ -1,24 +1,26 @@
 const baseUrl = 'https://itx-frontend-test.onrender.com/api/';
 
-async function getProducts(setter, errorSetter) {
+async function getProducts(setter, errorSetter, setLoading) {
   try {
-    const res = await fetch(`${baseUrl}products`);
+    const res = await fetch(`${baseUrl}product`);
     const productList = await res.json();
     setter(productList);
   } catch (error) {
-    console.log(error);
-    errorSetter(error.message);
+    errorSetter('Could not get products :(');
+  } finally {
+    setLoading(false);
   }
 }
 
-async function getProductById(id, setter, errorSetter) {
+async function getProductById(id, setter, errorSetter, setLoading) {
   try {
     const res = await fetch(`${baseUrl}products/id`);
     const productDetail = await res.json();
     setter(productDetail);
   } catch (error) {
-    console.log(error);
-    errorSetter(error.message);
+    errorSetter('Product not found.');
+  } finally {
+    setLoading(false);
   }
 }
 
