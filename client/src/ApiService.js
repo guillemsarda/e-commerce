@@ -14,7 +14,7 @@ async function getProducts(setter, errorSetter, setLoading) {
 
 async function getProductById(id, setter, errorSetter, setLoading) {
   try {
-    const res = await fetch(`${baseUrl}products/id`);
+    const res = await fetch(`${baseUrl}product/id`);
     const productDetail = await res.json();
     setter(productDetail);
   } catch (error) {

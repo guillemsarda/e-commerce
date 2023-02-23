@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ListView.css';
 
+import { Player } from '@lottiefiles/react-lottie-player';
 import { getProducts } from '../ApiService';
 import Item from '../components/Item';
 import SearchBar from '../components/SearchBar';
@@ -24,7 +25,17 @@ function ListView() {
     return products.map((product) => <Item product={product} key={product.id} />);
   }
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) {
+    return (
+      <Player
+        autoplay
+        loop
+        src="https://assets3.lottiefiles.com/packages/lf20_0xt1vcey.json"
+        style={{ height: '300px', width: '300px' }}
+      />
+    );
+  }
+
   if (error) return <h1>{error}</h1>;
   return (
     <main>

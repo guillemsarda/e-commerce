@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .products-list {
   display: grid;
   grid-template-columns: repeat(4, 300px);
@@ -6,5 +8,45 @@
 }
 
 .item {
+  display: flex;
   border: solid;
+  font-style: normal;
+  align-items: center;
+  justify-content: center;
+}
+
+.link:link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.item-name {
+  display: flex;
+  align-items: baseline;
+}
+
+.item-info {
+  font-family: 'Inter', sans-serif;
+}
+
+.item-info h1 {
+  font-weight: 300;
+}
+
+.item-info h2 {
+  font-weight: 100;
+  font-size: small;
+}
+
+/* font-family: 'Inter', sans-serif; */
+
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
