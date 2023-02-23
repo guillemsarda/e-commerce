@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchBar({ setSearchProducts, products }) {
+function SearchBar({ setSearchProducts, products, setUnmatched }) {
   return (
     <input
       type="text"
@@ -10,6 +10,8 @@ function SearchBar({ setSearchProducts, products }) {
           (product) =>
             product.brand.toLowerCase().includes(name) || product.model.toLowerCase().includes(name)
         );
+        if (!filteredProducts.length && e.target.value !== '') setUnmatched(true);
+        else setUnmatched(false);
         setSearchProducts(filteredProducts);
       }}
     />
