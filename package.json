@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce",
+  "description": "",
+  "version": "1.0.0",
+  "main": "client",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillemsarda/e-commerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillemsarda/e-commerce/issues"
+  },
+  "homepage": "https://github.com/guillemsarda/e-commerce#readme"
+}
