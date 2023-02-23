@@ -7,6 +7,7 @@ import SearchBar from '../components/SearchBar';
 
 function ListView() {
   const [products, setProducts] = useState([]);
+  const [searchProducts, setSearchProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -18,10 +19,10 @@ function ListView() {
   if (error) return <h1>{error}</h1>;
   return (
     <main>
-      <SearchBar />
-      {products.map((product) => (
-        <Item product={product} key={product.id} />
-      ))}
+      <SearchBar products={products} setSearchProducts={setSearchProducts} />
+      {!searchProducts.length
+        ? products.map((product) => <Item product={product} key={product.id} />)
+        : searchProducts.map((product) => <Item product={product} key={product.id} />)}
     </main>
   );
 }
