@@ -1,11 +1,19 @@
 .list-view {
-  height: 89vh;
+  height: 90vh;
+  position: relative;
 }
 
 .search-bar {
   position: absolute;
-  top: 30px;
-  right: 200px;
+  top: -55px;
+  right: 5%;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 10px;
+  border: transparent;
+  outline-color: #bdb2ff;
 }
 
 .products-list {
@@ -95,4 +103,15 @@
 .price {
   padding: 5px;
   border-radius: 5px;
+}
+
+.fallback-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
 }

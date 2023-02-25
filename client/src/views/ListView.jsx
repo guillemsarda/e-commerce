@@ -5,6 +5,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { getProducts } from '../ApiService';
 import Item from '../components/Item';
 import SearchBar from '../components/SearchBar';
+import Fallback from '../components/Fallback';
 
 function ListView() {
   const [products, setProducts] = useState([]); // Just used once
@@ -18,7 +19,12 @@ function ListView() {
   }, []);
 
   function setView() {
-    if (unmatched) return <h1>No phone was matched</h1>;
+    if (error) {
+      return <Fallback text={error} />;
+    }
+    if (unmatched) {
+      return <Fallback text="No phone was matched." />;
+    }
     if (searchProducts.length) {
       return searchProducts.map((product) => <Item product={product} key={product.id} />);
     }
@@ -36,7 +42,6 @@ function ListView() {
     );
   }
 
-  if (error) return <h1>{error}</h1>;
   return (
     <main className="list-view">
       <SearchBar
