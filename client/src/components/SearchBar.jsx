@@ -13,7 +13,7 @@ function SearchBar({ setSearchProducts, products, setUnmatched }) {
   }
   return (
     <div className="search-bar">
-      <input type="text" onChange={handleChange} placeholder="Search by name or brand" />
+      <input type="text" onChange={handleChange} placeholder="Search by model or brand" />
     </div>
   );
 }

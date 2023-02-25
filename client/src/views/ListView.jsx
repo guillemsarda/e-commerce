@@ -33,12 +33,14 @@ function ListView() {
 
   if (loading) {
     return (
-      <Player
-        autoplay
-        loop
-        src="https://assets3.lottiefiles.com/packages/lf20_0xt1vcey.json"
-        style={{ height: '300px', width: '300px' }}
-      />
+      <main className="list-view">
+        <Player
+          autoplay
+          loop
+          src="https://assets3.lottiefiles.com/packages/lf20_0xt1vcey.json"
+          style={{ height: '300px', width: '300px' }}
+        />
+      </main>
     );
   }
 

@@ -1,0 +1,40 @@
+.details-view {
+  height: 90vh;
+}
+
+.phone-headers {
+  margin-top: 3vh;
+  margin-left: 15vw;
+}
+
+.phone-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5vh 15vw 0 15vw;
+}
+
+.details-img-wrapper img {
+  width: 200px;
+}
+
+.description {
+  border: solid;
+}
+
+.values {
+  list-style-type: none;
+}
+
+.values li {
+  display: flex;
+  align-items: baseline;
+}
+
+.values h3 {
+  font-weight: 300;
+}
+
+.values h4 {
+  font-weight: 200;
+}

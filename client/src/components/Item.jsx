@@ -6,9 +6,9 @@ function Item({ product }) {
     <li className="item">
       <Link to={`product/${product.id}`} className="link">
         <article className="item-info">
-          <span className="img-wrapper">
+          <div className="img-wrapper">
             <img src={product.imgUrl} alt={`${product.brand}'s ${product.model} phone`} />
-          </span>
+          </div>
           <span className="item-name">
             <h2>Brand:</h2>
             &nbsp;
