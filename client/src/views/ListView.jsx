@@ -38,7 +38,7 @@ function ListView() {
 
   if (error) return <h1>{error}</h1>;
   return (
-    <main>
+    <main className="list-view">
       <SearchBar
         products={products}
         setSearchProducts={setSearchProducts}

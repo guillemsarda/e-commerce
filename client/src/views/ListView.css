@@ -1,18 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.list-view {
+  height: 89vh;
+}
+
+.search-bar {
+  position: absolute;
+  top: 30px;
+  right: 200px;
+}
 
 .products-list {
   display: grid;
   grid-template-columns: repeat(4, 300px);
   list-style-type: none;
   gap: 20px;
+  justify-content: center;
+  height: 100%;
+  overflow: scroll;
+  padding-top: 1vh;
 }
 
 .item {
   display: flex;
-  border: solid;
+  border-radius: 15px;
   font-style: normal;
   align-items: center;
   justify-content: center;
+  height: 500px;
+  background-color: #ffff;
+  transition: all ease-in-out 0.2s;
+}
+
+.item:hover {
+  transform: scale(1.02);
+}
+
+.link {
+  height: inherit;
+  width: 100%;
 }
 
 .link:link {
@@ -25,13 +49,26 @@
   color: black;
 }
 
+.item-info {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .item-name {
   display: flex;
   align-items: baseline;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
-.item-info {
-  font-family: 'Inter', sans-serif;
+.img-wrapper {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
 }
 
 .item-info h1 {
@@ -45,8 +82,17 @@
 
 /* font-family: 'Inter', sans-serif; */
 
-.img-wrapper {
+.price-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.price {
+  padding: 5px;
+  border-radius: 5px;
 }

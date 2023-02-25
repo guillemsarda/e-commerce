@@ -19,7 +19,16 @@ function Item({ product }) {
             &nbsp;
             <h1>{product.model}</h1>
           </span>
-          <h3>{product.price ? `${product.price}€` : '-'}</h3>
+          <span className="price-wrapper">
+            <h3
+              className="price"
+              style={{
+                backgroundColor: product.price ? '#bdb2ff' : '#d3d3d3',
+              }}
+            >
+              {product.price ? `${product.price}€` : 'Out of stock'}
+            </h3>
+          </span>
         </article>
       </Link>
     </li>
