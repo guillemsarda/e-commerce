@@ -3,6 +3,10 @@
   "plugins": ["react-hooks"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": 0,
+    "operator-linebreak": 0,
+    "comma-dangle": 0,
+    "implicit-arrow-linebreak": 0
   }
 }
