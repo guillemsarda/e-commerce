@@ -3,19 +3,33 @@ import { useParams } from 'react-router-dom';
 import './DetailsView.css';
 
 import { Player } from '@lottiefiles/react-lottie-player';
-import { getProductById } from '../ApiService';
+import { addToCart, getProductById } from '../ApiService';
 import Fallback from '../components/Fallback';
 
-function DetailsView() {
+function DetailsView({ setCart }) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedStorage, setSelectedStorage] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     getProductById(id, setDetails, setError, setLoading);
   }, [id]);
 
+  useEffect(() => {
+    if (details.internalMemory) setSelectedStorage(details.internalMemory[0]);
+    if (details.colors) setSelectedColor(details.colors[0]);
+  }, [details]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setDisabled(true);
+    const body = { id: details.id, colorCode: selectedColor, storageCode: selectedStorage };
+    addToCart(body, setCart, setDisabled);
+  }
   if (loading) {
     return (
       <Player
@@ -95,7 +109,43 @@ function DetailsView() {
               </li>
             </ul>
           </section>
-          <div>Actions</div>
+          <form onSubmit={handleSubmit}>
+            <fieldset>
+              <legend>Select a storage:</legend>
+              {details.internalMemory.map((storage) => (
+                <div key={storage}>
+                  <input
+                    type="radio"
+                    name={storage}
+                    checked={storage === selectedStorage}
+                    onChange={() => setSelectedStorage(storage)}
+                  />
+                  <label htmlFor={storage}>{storage}</label>
+                </div>
+              ))}
+            </fieldset>
+            <fieldset>
+              <legend>Select a color:</legend>
+              {details.colors.map((color) => (
+                <div key={color}>
+                  <input
+                    type="radio"
+                    name={color}
+                    checked={color === selectedColor}
+                    onChange={() => setSelectedColor(color)}
+                  />
+                  <label htmlFor={color}>{color}</label>
+                </div>
+              ))}
+            </fieldset>
+            <input
+              type="submit"
+              title="Add to cart"
+              name="add"
+              value="Add to cart"
+              disabled={disabled}
+            />
+          </form>
         </div>
       </div>
     </main>
