@@ -29,6 +29,23 @@ function App() {
           <ListView />
         </>
       ),
+      errorElement: (
+        <>
+          <Header cart={cart} />
+          <main
+            style={{
+              height: '90vh',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <h1 style={{ fontSize: '200px', fontWeight: '100' }}>404</h1>
+            <p style={{ fontSize: '50px', fontWeight: '100' }}>This route does not exist.</p>
+          </main>
+        </>
+      ),
     },
     {
       path: '/product/:id',
@@ -36,6 +53,23 @@ function App() {
         <>
           <Header cart={cart} />
           <DetailsView setCart={setCart} />
+        </>
+      ),
+      errorElement: (
+        <>
+          <Header cart={cart} />
+          <main
+            style={{
+              height: '90vh',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <h1 style={{ fontSize: '200px', fontWeight: '100' }}>404</h1>
+            <p style={{ fontSize: '50px', fontWeight: '100' }}>This route does not exist.</p>
+          </main>
         </>
       ),
     },
