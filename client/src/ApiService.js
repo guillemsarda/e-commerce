@@ -51,8 +51,8 @@ async function addToCart(body, details, setter, setDisabled) {
     localStorage.setItem('cart', JSON.stringify(cart));
     setter((prev) => [...prev, product]);
   } catch (error) {
-    // setError(error.message);
-    console.log(error);
+    // eslint-disable-next-line no-undef, no-alert
+    alert(error.message);
   } finally {
     setDisabled(false);
   }
