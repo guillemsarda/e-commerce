@@ -28,7 +28,7 @@ function DetailsView({ setCart }) {
     e.preventDefault();
     setDisabled(true);
     const body = { id: details.id, colorCode: selectedColor, storageCode: selectedStorage };
-    addToCart(body, setCart, setDisabled);
+    addToCart(body, details, setCart, setDisabled);
   }
   if (loading) {
     return (

@@ -26,17 +26,30 @@ async function getProductById(id, setter, setError, setLoading) {
   }
 }
 
-async function addToCart(body, setter, setDisabled) {
+async function addToCart(body, details, setter, setDisabled) {
   try {
     const res = await fetch(`${baseUrl}cart`, {
       method: 'POST',
       body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
     if (res.status >= 400) throw new Error('Product could not be added.');
-    setter((prev) => [...prev, body]);
+    const product = {
+      imgUrl: details.imgUrl,
+      brand: details.brand,
+      model: details.model,
+      ...body,
+    };
+    // eslint-disable-next-line no-undef
+    const cartCached = localStorage.getItem('cart');
+    let cart = { products: [], expiration: Date.now() + 60 * 60 * 1000 };
+    if (cartCached) {
+      cart = JSON.parse(cartCached);
+    }
+    cart.products.push(product);
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setter((prev) => [...prev, product]);
   } catch (error) {
     // setError(error.message);
     console.log(error);

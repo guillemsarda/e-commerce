@@ -1,6 +1,8 @@
 import React from 'react';
 
-function Header() {
+import Cart from './Cart';
+
+function Header({ cart }) {
   return (
     <header>
       <a href="/">
@@ -27,7 +29,8 @@ function Header() {
           </g>
         </svg>
       </a>
-      Cart Breadcrumps
+      Breadcrumps
+      <Cart cart={cart} />
     </header>
   );
 }
