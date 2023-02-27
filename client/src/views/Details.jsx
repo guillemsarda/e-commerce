@@ -5,7 +5,7 @@ import './DetailsView.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { addToCart, getProductById } from '../ApiService';
 import Fallback from '../components/Fallback';
-import useStore from '../utils';
+import useStore from '../utils/store';
 import Details from '../components/Details';
 
 function DetailsView({ setCart }) {
@@ -72,7 +72,7 @@ function DetailsView({ setCart }) {
         </section>
         <div>
           <section className="description">
-            <h2>{`${details.price}€`}</h2>
+            <h2 className="description-title">Product Details:</h2>
             <ul className="values">
               <Details
                 details={{
@@ -88,39 +88,54 @@ function DetailsView({ setCart }) {
                 }}
               />
             </ul>
+            <span className="price-wrapper details-price-wrapper">
+              <h3
+                className="details-price"
+                style={{
+                  backgroundColor: details.price ? '#bdb2ff' : '#d3d3d3',
+                }}
+              >
+                {details.price ? `${details.price}€` : 'Out of stock'}
+              </h3>
+            </span>
           </section>
           <form onSubmit={handleSubmit}>
             <fieldset>
               <legend>Select a storage:</legend>
               {details.internalMemory.map((storage) => (
-                <div key={storage}>
+                <div key={storage} className="radio">
                   <input
                     type="radio"
                     name={storage}
                     checked={storage === selectedStorage}
                     onChange={() => setSelectedStorage(storage)}
                   />
-                  <label htmlFor={storage}>{storage}</label>
+                  <label htmlFor={storage} className="radio-label">
+                    {storage}
+                  </label>
                 </div>
               ))}
             </fieldset>
             <fieldset>
               <legend>Select a color:</legend>
               {details.colors.map((color) => (
-                <div key={color}>
+                <div key={color} className="radio">
                   <input
                     type="radio"
                     name={color}
                     checked={color === selectedColor}
                     onChange={() => setSelectedColor(color)}
                   />
-                  <label htmlFor={color}>{color}</label>
+                  <label htmlFor={color} className="radio-label">
+                    {color}
+                  </label>
                 </div>
               ))}
             </fieldset>
             <input
               type="submit"
               title="Add to cart"
+              className="add-cart"
               name="add"
               value="Add to cart"
               disabled={disabled}

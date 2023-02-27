@@ -9,17 +9,64 @@
 
 .phone-content {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-around;
   margin: 5vh 15vw 0 15vw;
+}
+
+.details-img-wrapper {
+  display: flex;
+  align-items: flex-start;
+  background-color: red;
 }
 
 .details-img-wrapper img {
   width: 200px;
 }
 
-.description {
-  border: solid;
+.description-title {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.details-price-wrapper {
+  position: initial;
+  margin: 15px 0;
+}
+
+.details-price {
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+fieldset {
+  margin-top: 20px;
+  border: solid #bdb2ff;
+  border-radius: 0 10px 10px 10px;
+}
+
+.radio {
+  padding: 10px;
+}
+
+.radio-label {
+  margin-left: 5px;
+}
+
+.add-cart {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #4a2669;
+  color: #ffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-cart:disabled {
+  background-color: #cecece;
+  cursor: not-allowed;
 }
 
 .values {

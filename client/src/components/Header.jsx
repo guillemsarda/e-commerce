@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Cart from './Cart';
-import useStore from '../utils';
+import useStore from '../utils/store';
 
 function Header({ cart }) {
   const [opened, setOpened] = useState(false);

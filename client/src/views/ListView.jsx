@@ -6,7 +6,7 @@ import { getProducts } from '../ApiService';
 import Item from '../components/Item';
 import SearchBar from '../components/SearchBar';
 import Fallback from '../components/Fallback';
-import useStore from '../utils';
+import useStore from '../utils/store';
 
 function ListView() {
   const [products, setProducts] = useState([]); // Just used once
