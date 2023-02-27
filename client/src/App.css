@@ -68,8 +68,8 @@ header {
   border-bottom: solid 1px #edede9;
 }
 
-.first-product {
-  border-top: solid 1px #edede9;
+.last-product {
+  border-bottom: none;
 }
 
 .cart-product img {

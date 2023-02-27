@@ -23,19 +23,24 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <ListView />,
+      element: (
+        <>
+          <Header cart={cart} />
+          <ListView />
+        </>
+      ),
     },
     {
       path: '/product/:id',
-      element: <DetailsView setCart={setCart} />,
+      element: (
+        <>
+          <Header cart={cart} />
+          <DetailsView setCart={setCart} />
+        </>
+      ),
     },
   ]);
-  return (
-    <>
-      <Header cart={cart} />
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

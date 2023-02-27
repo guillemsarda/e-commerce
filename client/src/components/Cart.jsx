@@ -1,8 +1,13 @@
 import React from 'react';
 
 function Cart({ cart }) {
+  let counter = 0;
   return cart.map((product, i) => (
-    <section className={`cart-product ${i === 0 ? 'first-product' : ''}`}>
+    <section
+      className={`cart-product ${i === cart.length - 1 ? 'last-product' : ''}`}
+      // eslint-disable-next-line no-plusplus
+      key={`cart-product-${++counter}}`}
+    >
       <img src={product.imgUrl} alt={`${product.brand}'s ${product.model} phone`} />
       <div className="popup-description">
         <article>
