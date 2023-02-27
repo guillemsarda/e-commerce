@@ -6,6 +6,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { addToCart, getProductById } from '../ApiService';
 import Fallback from '../components/Fallback';
 import useStore from '../utils';
+import Details from '../components/Details';
 
 function DetailsView({ setCart }) {
   const { id } = useParams();
@@ -73,51 +74,19 @@ function DetailsView({ setCart }) {
           <section className="description">
             <h2>{`${details.price}€`}</h2>
             <ul className="values">
-              <li>
-                <h4>CPU:</h4>
-                &nbsp;
-                <h3>{details.cpu}</h3>
-              </li>
-              <li>
-                <h4>RAM:</h4>
-                &nbsp;
-                <h3>{details.ram}</h3>
-              </li>
-              <li>
-                <h4>OS:</h4>
-                &nbsp;
-                <h3>{details.os}</h3>
-              </li>
-              <li>
-                <h4>Display resolution:</h4>
-                &nbsp;
-                <h3>{details.displayResolution}</h3>
-              </li>
-              <li>
-                <h4>Battery:</h4>
-                &nbsp;
-                <h3>{details.battery}</h3>
-              </li>
-              <li>
-                <h4>Primary Camera:</h4>
-                &nbsp;
-                <h3>{details.primaryCamera}</h3>
-              </li>
-              <li>
-                <h4>Secondary Camera:</h4>
-                &nbsp;
-                <h3>{details.secondaryCmera}</h3>
-              </li>
-              <li>
-                <h4>Dimentions:</h4>
-                &nbsp;
-                <h3>{details.dimentions}</h3>
-              </li>
-              <li>
-                <h4>Weight:</h4>
-                &nbsp;
-                <h3>{`${details.weight}gr`}</h3>
-              </li>
+              <Details
+                details={{
+                  CPU: details.cpu,
+                  RAM: details.ram,
+                  OS: details.os,
+                  displayResolution: details.displayResolution,
+                  battery: details.battery,
+                  primaryCamera: details.primaryCamera,
+                  secondaryCamera: details.secondaryCmera,
+                  dimentions: details.dimentions,
+                  weight: details.weight ? `${details.weight}g` : null,
+                }}
+              />
             </ul>
           </section>
           <form onSubmit={handleSubmit}>
