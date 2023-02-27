@@ -19,7 +19,7 @@ function ListView() {
   useEffect(() => {
     methods.setPageName('');
     getProducts(setProducts, setError, setLoading);
-  }, [methods]);
+  }, []);
 
   function setView() {
     if (error) {

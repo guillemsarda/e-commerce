@@ -28,7 +28,7 @@ function DetailsView({ setCart }) {
       const pageName = `${details.brand}'s ${details.model}`;
       methods.setPageName(pageName);
     }
-  }, [details, methods]);
+  }, [details]);
 
   function handleSubmit(e) {
     e.preventDefault();
