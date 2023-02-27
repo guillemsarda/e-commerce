@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Cart from './Cart';
 
 function Header({ cart }) {
+  const [opened, setOpened] = useState(false);
   return (
     <header>
       <a href="/">
@@ -29,8 +30,33 @@ function Header({ cart }) {
           </g>
         </svg>
       </a>
-      Breadcrumps
-      <Cart cart={cart} />
+      <h3>Breadcrumps</h3>
+      <div className="cart-popup-wrapper">
+        <button
+          type="button"
+          onClick={() => setOpened(!opened)}
+          style={{
+            borderBottom: opened ? 'none' : 'solid 2px #4a2669',
+            height: opened ? '32px' : '34px',
+            borderRadius: opened ? '5px 5px 0 0' : '5px',
+          }}
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"
+            alt="cart"
+            height="20px"
+          />
+        </button>
+        {opened ? (
+          <div className="cart-popup">
+            <h1 className="popup-title">Products in the cart:</h1>
+            <Cart cart={cart} />
+            <h1 className="popup-title total">
+              {`Total: ${cart.reduce((acc, { price }) => +acc + +price, 0)}€`}
+            </h1>
+          </div>
+        ) : null}
+      </div>
     </header>
   );
 }
