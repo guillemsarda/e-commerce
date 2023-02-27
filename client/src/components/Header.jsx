@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Cart from './Cart';
+import useStore from '../utils';
 
 function Header({ cart }) {
   const [opened, setOpened] = useState(false);
+  const { storeStates } = useStore();
   return (
     <header>
       <Link to="/">
@@ -31,7 +33,13 @@ function Header({ cart }) {
           </g>
         </svg>
       </Link>
-      <h3>Buycell</h3>
+      <div className="breadcrump">
+        <Link className="buycell-link" to="/">
+          <h3>Buycell</h3>
+        </Link>
+        &nbsp;
+        <h3>{storeStates.pageName ? `> ${storeStates.pageName}` : ''}</h3>
+      </div>
       <div className="cart-popup-wrapper">
         <button
           type="button"

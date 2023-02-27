@@ -5,6 +5,7 @@ import './DetailsView.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { addToCart, getProductById } from '../ApiService';
 import Fallback from '../components/Fallback';
+import useStore from '../utils';
 
 function DetailsView({ setCart }) {
   const { id } = useParams();
@@ -14,6 +15,7 @@ function DetailsView({ setCart }) {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedStorage, setSelectedStorage] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const { methods } = useStore();
 
   useEffect(() => {
     getProductById(id, setDetails, setError, setLoading);
@@ -22,7 +24,11 @@ function DetailsView({ setCart }) {
   useEffect(() => {
     if (details.internalMemory) setSelectedStorage(details.internalMemory[0]);
     if (details.colors) setSelectedColor(details.colors[0]);
-  }, [details]);
+    if (details.brand && details.model) {
+      const pageName = `${details.brand}'s ${details.model}`;
+      methods.setPageName(pageName);
+    }
+  }, [details, methods]);
 
   function handleSubmit(e) {
     e.preventDefault();

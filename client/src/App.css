@@ -15,6 +15,22 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+.breadcrump {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.buycell-link:link {
+  text-decoration: none;
+  color: black;
+}
+
+.buycell-link:visited {
+  text-decoration: none;
+  color: black;
+}
 
 .cart-popup-wrapper {
   position: relative;

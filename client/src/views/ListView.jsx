@@ -6,6 +6,7 @@ import { getProducts } from '../ApiService';
 import Item from '../components/Item';
 import SearchBar from '../components/SearchBar';
 import Fallback from '../components/Fallback';
+import useStore from '../utils';
 
 function ListView() {
   const [products, setProducts] = useState([]); // Just used once
@@ -13,10 +14,12 @@ function ListView() {
   const [unmatched, setUnmatched] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { methods } = useStore();
 
   useEffect(() => {
+    methods.setPageName('');
     getProducts(setProducts, setError, setLoading);
-  }, []);
+  }, [methods]);
 
   function setView() {
     if (error) {
