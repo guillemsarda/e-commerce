@@ -48,6 +48,7 @@ function Header({ cart }) {
             borderBottom: opened ? 'none' : 'solid 2px #4a2669',
             height: opened ? '32px' : '34px',
             borderRadius: opened ? '5px 5px 0 0' : '5px',
+            display: 'flex',
           }}
         >
           <img
@@ -55,6 +56,7 @@ function Header({ cart }) {
             alt="cart"
             height="20px"
           />
+          {`(${cart.length})`}
         </button>
         {opened ? (
           <div className="cart-popup">
