@@ -1,12 +1,14 @@
 .list-view {
-  height: 90vh;
+  height: 80vh;
   position: relative;
+  margin-top: 10vh;
 }
 
 .search-bar {
   position: absolute;
   top: -55px;
-  right: 5%;
+  right: 0;
+  margin-right: 7vw;
 }
 
 .search-bar input {
@@ -87,8 +89,6 @@
   font-weight: 100;
   font-size: small;
 }
-
-/* font-family: 'Inter', sans-serif; */
 
 .price-wrapper {
   position: absolute;
